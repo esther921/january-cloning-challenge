@@ -368,9 +368,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative max-w-[1170px] w-fit">
+          <div className="relative max-w-[1170px] ">
             <div className="border bg-blue-800 fixed p-3 text-white rounded-full bottom-0">
-              <HiChevronUp className="hover:-translate-y-2" />
+              <HiChevronUp className="hover:-translate-y-3 mt-2" />
             </div>
             {/* Absoluted image text black-bg section */}
             <div className="max-w-[1170px] relative mx-auto bg-[#333] h-[1655px] pl-12 pt-12">
@@ -510,10 +510,6 @@ export default function Home() {
                   ],
                   [
                     "All study programs",
-                    "Visionary since 1829: The University of Stuttgart stands for exceptional, world-acclaimed research …, …",
-                  ],
-                  [
-                    "Study",
                     "On the webpages of your degree program you will find information on the study program structure, …",
                   ],
                   [
@@ -530,14 +526,6 @@ export default function Home() {
                   ],
                   [
                     "All study programs",
-                    "Visionary since 1829: The University of Stuttgart stands for exceptional, world-acclaimed research …",
-                  ],
-                  [
-                    "All study programs",
-                    "On the webpages of your degree program you will find information on the study program structure, …",
-                  ],
-                  [
-                    "University",
                     "On the webpages of your degree program you will find information on the study program structure, …",
                   ],
                   [
@@ -550,11 +538,23 @@ export default function Home() {
                   ],
                   [
                     "All study programs",
-                    "Visionary since 1829: The University of Stuttgart stands for exceptional, world-acclaimed research …",
+                    "On the webpages of your degree program you will find information on the study program structure, …",
                   ],
                   [
-                    "Research",
-                    "Visionary since 1829: The University of Stuttgart stands for exceptional, world-acclaimed research …",
+                    "All study programs",
+                    "On the webpages of your degree program you will find information on the study program structure, …",
+                  ],
+                  [
+                    "All study programs",
+                    "On the webpages of your degree program you will find information on the study program structure, …",
+                  ],
+                  [
+                    "All study programs",
+                    "On the webpages of your degree program you will find information on the study program structure, …",
+                  ],
+                  [
+                    "All study programs",
+                    "On the webpages of your degree program you will find information on the study program structure, …",
                   ],
                 ].map((item, i) => {
                   return (
