@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState, useLayoutEffect } from "react";
 import Image from "next/image";
 import { IoAccessibilityOutline } from "react-icons/io5";
 import { FaChevronRight } from "react-icons/fa";
@@ -9,6 +10,7 @@ import { HiOutlineInformationCircle } from "react-icons/hi";
 import { VscSearch, VscTwitter } from "react-icons/vsc";
 import { CgFacebook } from "react-icons/cg";
 import { BsInstagram, BsMastodon, BsLinkedin } from "react-icons/bs";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -87,11 +89,11 @@ export default function Home() {
                 <h4 className="mb-2">expression</h4>
                 <div>
                   <input
-                    className="border border-gray-500  py-3 px-2 w-full focus:outline-[#004191]"
+                    className="border border-gray-300  py-3 px-2 w-full focus:outline-[#004191] "
                     type="text"
                     placeholder="Search for terms from the university glossary"
                   />
-                  <button className="px-6 text-sm py-4 bg-[#004191] text-white mt-4">
+                  <button className="px-8 text-sm py-4 bg-[#004191] text-white mt-4 hover:bg-[#333] font-semibold">
                     SEARCH TERM
                   </button>
                 </div>
@@ -104,19 +106,38 @@ export default function Home() {
                     "https://www.student.uni-stuttgart.de/img/easydb-2019_11_20_Unitag_118.jpg?__scale=w:370,h:370,cx:332,cy:0,cw:1335,ch:1335",
                     "Study programs",
                     "Masters programs",
-                    "LIST OF ALL STUDY PROGRAMS",
+                    "Study programs",
+                    "Masters programs",
+                    "Study programs",
+                    "Masters programs",
+                    "Study programs",
+                    "Masters programs",
+                    "Study programs",
                   ],
                   [
                     "https://www.student.uni-stuttgart.de/img/easydb-IMG_0423.jpg?__scale=w:370,h:370,cx:0,cy:250,cw:1500,ch:1500",
                     "Support",
                     "Living in the stuttgart",
                     "Counseling",
-                    "SUPPORT FOR THE INTERNATIONALS",
+                    "Living in the stuttgart",
+                    "Counseling",
+                    "Living in the stuttgart",
+                    "Counseling",
+                    "Living in the stuttgart",
+                    "Counseling",
+                    "Living in the stuttgart",
+                    "Counseling",
                   ],
                   [
                     "https://www.student.uni-stuttgart.de/img/easydb-2019_11_20_Unitag_113.jpg?__scale=w:370,h:370,cx:332,cy:0,cw:1335,ch:1335",
                     "Application",
                     "International Students (degree)",
+                    "Exchange students (non degree)",
+                    "Applying and enrolling",
+                    "Exchange students (non degree)",
+                    "Applying and enrolling",
+                    "Exchange students (non degree)",
+                    "Applying and enrolling",
                     "Exchange students (non degree)",
                     "Applying and enrolling",
                   ],
@@ -128,15 +149,72 @@ export default function Home() {
                         alt="pic"
                         className="max-w-[293px] max-h-[293px]"
                       />
-                      <h1 className="font-semibold ">{item[1]}</h1>
-                      <div className="flex flex-col gap-1">
+                      <h1 className="font-bold text-lg">{item[1]}</h1>
+                      <div className="flex flex-col gap-2">
                         {" "}
-                        <p className="text-[#004191] font-semibold">
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
                           {item[2]}
-                        </p>
-                        <p className="text-[#004191] font-semibold">
-                          {item[3]}
-                        </p>
+                        </Link>
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
+                          {item[4]}
+                        </Link>
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
+                          {item[5]}
+                        </Link>{" "}
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
+                          {item[6]}
+                        </Link>{" "}
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
+                          {item[7]}
+                        </Link>{" "}
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
+                          {item[8]}
+                        </Link>{" "}
+                        <Link
+                          href=""
+                          className="hover:underline text-[#004191] font-bold flex gap-2"
+                        >
+                          <span className="text-[#333] mt-1">
+                            <FaChevronRight />
+                          </span>
+                          {item[9]}
+                        </Link>
                       </div>
                     </div>
                   );
@@ -151,27 +229,27 @@ export default function Home() {
           </section>
 
           {/* Absoluted image text black-bg section */}
-          <div className="max-w-[1170px] mx-auto bg-[#333] h-[1555px] pl-12 pt-12">
+          <div className="max-w-[1170px] relative mx-auto bg-[#333] h-[1655px] pl-12 pt-12">
             <h1 className="text-white font-bold text-3xl pl-20 pb-6">
               News and events for students
             </h1>
             <div className="relative max-w-[960px] mx-auto">
               {/* first card */}
-              <div className="absolute p-5 flex flex-col gap-4 h-[152px] w-[284px] bg-white float-left left-0 top-0 mb-[30px]">
+              <div className=" absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[152px] w-[284px] bg-white float-left left-0 top-0 mb-[30px]">
                 <h1 className="font-bold text-xl">
                   Newsticker: Information on the coronavirus
                 </h1>
                 <p>Article | 11/10/22</p>
               </div>
               {/* Card 2 */}
-              <div className="absolute p-5 flex flex-col gap-4 h-[205px] w-[284px] bg-white float-left left-0 top-[181px] mb-[30px]">
+              <div className="absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[205px] w-[284px] bg-white float-left left-0 top-[181px] mb-[30px]">
                 <h1 className="font-bold text-xl">
                   Impressive research in the field of business administration
                 </h1>
                 <p>News | 12/21/22</p>
               </div>
               {/* Card 3 with image*/}
-              <div className="absolute p-5 flex flex-col gap-4 h-[472px] w-[284px] bg-white float-left left-0 top-[416px] mb-[30px]">
+              <div className="absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[472px] w-[284px] bg-white float-left left-0 top-[416px] mb-[30px]">
                 <img
                   className="rounded-full w-[220px] h-[220px] mx-auto mt-4"
                   src="https://www.uni-stuttgart.de/universitaet/aktuelles/meldungen/img-news/instagram.jpg?__scale=w:220,h:220,cx:333,cy:0,cw:1333,ch:1333"
@@ -187,7 +265,7 @@ export default function Home() {
                 </p>
               </div>
               {/* 4th card with video */}
-              <div className="absolute w-[284px] h-[425px] bg-white float-left left-[32.3313%] top-0 mb-[30px] p-0">
+              <div className="absolute hover:bg-[#00beff] w-[284px] h-[425px] bg-white float-left left-[32.3313%] top-0 mb-[30px] p-0">
                 <img
                   className=""
                   src="https://www.uni-stuttgart.de/universitaet/aktuelles/video/img-video-vorschaubilder/24A_1280x720.jpg?__scale=w:560,h:400,cx:136,cy:0,cw:1008,ch:720"
@@ -199,7 +277,7 @@ export default function Home() {
                 <p className="p-4 pt-0">Article | 11/10/22</p>
               </div>
               {/* 5th card with picture */}
-              <div className="absolute p-5 flex flex-col gap-4 h-[401px] w-[284px] bg-white float-left left-[32.3313%] top-[456px] mb-[30px]">
+              <div className="absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[401px] w-[284px] bg-white float-left left-[32.3313%] top-[456px] mb-[30px]">
                 <img
                   className="rounded-full w-[220px] h-[220px] mx-auto mt-4"
                   src="https://www.simtech.uni-stuttgart.de/img/Sim_Tech_Folge_03_Szene_27.jpg?__scale=w:220,h:220,cx:262,cy:26,cw:1073,ch:1073"
@@ -211,14 +289,14 @@ export default function Home() {
                 <p>Article | 11/10/22</p>
               </div>
               {/* 6th card no picture */}
-              <div className="absolute p-5 flex flex-col gap-4 h-[233px] w-[284px] bg-white float-left left-[32.3313%] top-[888px] mb-[30px]">
+              <div className="absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[233px] w-[284px] bg-white float-left left-[32.3313%] top-[888px] mb-[30px]">
                 <h1 className="font-bold text-xl">
                   Newsticker: Information on the coronavirus
                 </h1>
                 <p>Article | 11/10/22</p>
               </div>
               {/* 7th card with image */}
-              <div className="absolute w-[284px] h-[418px] bg-white float-left left-[64.7609%] top-0 mb-[30px]">
+              <div className="absolute hover:bg-[#00beff] w-[284px] h-[418px] bg-white float-left left-[64.7609%] top-0 mb-[30px]">
                 <img
                   src="https://www.usus.uni-stuttgart.de/img/2022/stressed-student.jpg?__scale=w:560,h:400,cx:67,cy:0,cw:1866,ch:1333"
                   alt=""
@@ -228,7 +306,7 @@ export default function Home() {
                 </h1>
                 <p className="p-4 pt-0">Article | 11/10/22</p>
               </div>
-              <div className="absolute p-5 flex flex-col gap-4 h-[426px] w-[284px] bg-white float-left left-[64.7609%] top-[448px] mb-[30px]">
+              <div className="absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[426px] w-[284px] bg-white float-left left-[64.7609%] top-[448px] mb-[30px]">
                 <img
                   className="rounded-full w-[220px] h-[220px] mx-auto mt-4"
                   src="https://www.uni-stuttgart.de/universitaet/aktuelles/meldungen/img-news/photocase_4910444.jpg?__scale=w:220,h:220,cx:0,cy:871,cw:2000,ch:2000"
@@ -240,7 +318,7 @@ export default function Home() {
                 <p>Article | 11/10/22</p>
               </div>
               {/* last card with image */}
-              <div className="absolute p-5 flex flex-col gap-4 h-[426px] w-[284px] bg-white float-left left-[64.7609%] top-[904px] mb-[30px]">
+              <div className="absolute p-5 hover:bg-[#00beff] flex flex-col gap-4 h-[426px] w-[284px] bg-white float-left left-[64.7609%] top-[904px] mb-[30px]">
                 <img
                   className="rounded-full w-[220px] h-[220px] mx-auto mt-4"
                   src="https://www.uni-stuttgart.de/universitaet/aktuelles/meldungen/img-news/diversity-kalender.JPG?__scale=w:220,h:220,cx:170,cy:0,cw:832,ch:832"
@@ -252,7 +330,17 @@ export default function Home() {
                 <p>Article | 11/10/22</p>
               </div>
             </div>
+            <div className="text-white absolute bottom-[5%] right-[39%] flex gap-8">
+              <button className="border border-white py-3 px-6 font-semibold">
+                ALL REPORTS
+              </button>
+              <button className="border border-white py-3 px-6 font-semibold">
+                ALL EVENTS
+              </button>
+            </div>
           </div>
+          {/* blank white small section */}
+          <div className="h-8 bg-white"></div>
           {/* Blue bg section with cirles */}
           <div className="bg-[#004191] py-12">
             <p className="text-white text-3xl font-semibold pb-12 pl-36">
