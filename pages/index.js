@@ -26,9 +26,9 @@ export default function Home() {
         />
       </Head>
       <div className="bg-[#dddddd]">
-        <div className="max-w-[1170px] mx-auto relative">
+        <div className="max-w-[1170px] mx-auto lg:relative relative">
           {/* navbar */}
-          <div className="bg-white p-[15px] pb-13 sticky top-0 z-[100000000]">
+          <div className="bg-white p-[15px] pb-13 lg:fixed lg:w-full   sticky top-0 z-[100000000] lg:px-12">
             <div className="grid grid-cols-12 max-w-[960px] mx-auto">
               {/* logo part */}
               <div className="col-span-6">
@@ -62,7 +62,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="bg-[#00BEFF]">
+          <div className="bg-[#00BEFF] lg:px-12">
             <div className=" h-80 max-w-[990px] mx-auto gap-24 flex justify-between items-center ">
               <div className="space-y-6">
                 <h4 className="font-bold text-3xl">Students</h4>
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
 
           {/* form and image text btn section */}
-          <section className="max-w-[74rem] bg-white mx-auto pb-32">
+          <section className="max-w-[74rem] bg-white mx-auto pb-32 lg:px-12">
             <div className=" max-w-[44rem] mx-auto grid pt-16 pb-10">
               <div className=" bg-[#EEEEEE] px-10  py-6">
                 <h4 className="mb-2">expression</h4>
@@ -100,7 +100,7 @@ export default function Home() {
               </div>
             </div>
             <div className="max-w-[960px] mx-auto">
-              <div className="grid grid-cols-3  gap-6">
+              <div className="grid grid-cols-3 lg:grid-cols-2 lg:grid-rows-2 lg:gap-y-12 mx-auto max-w-fit lg:gap-x-32 gap-6">
                 {[
                   [
                     "https://www.student.uni-stuttgart.de/img/easydb-2019_11_20_Unitag_118.jpg?__scale=w:370,h:370,cx:332,cy:0,cw:1335,ch:1335",
@@ -342,7 +342,7 @@ export default function Home() {
           {/* blank white small section */}
           <div className="h-8 bg-white"></div>
           {/* Blue bg section with cirles */}
-          <div className="bg-[#004191] py-12">
+          <div className="bg-[#004191] py-12 lg:px-12">
             <p className="text-white text-3xl font-semibold pb-12 pl-36">
               Information for students
             </p>
@@ -414,8 +414,11 @@ export default function Home() {
                 ],
               ].map((item, i) => {
                 return (
-                  <div key={i} className="flex w-[466px] h-[130px] gap-6">
-                    <div className="rounded-full border-2 border-white w-[206px] h-[130px] flex justify-center items-center">
+                  <div
+                    key={i}
+                    className="flex w-[466px] h-[130px] gap-6 select-none"
+                  >
+                    <div className="rounded-full border-2 bg-[#004191] text-white hover:text-[#004191] transition-all duration-300 hover:bg-white border-white w-[206px] h-[130px] flex justify-center items-center">
                       <FaChevronRight />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -475,23 +478,43 @@ export default function Home() {
                       <div className="flex flex-col gap-2">
                         <div className="flex gap-2">
                           <RiProfileLine className="text-gray-500 mt-1" />
-                          <p className="underline text-slate-600">{item[2]}</p>
+                          <Link
+                            href={""}
+                            className="underline hover:no-underline text-slate-600"
+                          >
+                            {item[2]}
+                          </Link>
                         </div>
                         <div className="flex gap-2">
                           <FiPhone className="text-gray-500 mt-1" />
-                          <p className="underline text-slate-600">{item[3]}</p>
+                          <Link
+                            href={""}
+                            className="underline hover:no-underline text-slate-600"
+                          >
+                            {item[3]}
+                          </Link>
                         </div>
                         <div className="flex gap-2">
                           <TfiEmail className="text-gray-500 mt-1" />
-                          <p className="underline text-slate-600">{item[4]}</p>
+                          <Link
+                            href={""}
+                            className="underline hover:no-underline text-slate-600"
+                          >
+                            {item[4]}
+                          </Link>
                         </div>
                         <div className="">
                           <div className="grid grid-cols-12">
                             <HiOutlineInformationCircle className="text-gray-500 mt-1" />
-                            <p className=" text-slate-600 col-span-11">
-                              <span className="underline">{item[5]}</span>
+                            <Link
+                              href={""}
+                              className=" text-slate-600 col-span-11"
+                            >
+                              <span className="underline hover:no-underline">
+                                {item[5]}
+                              </span>
                               {item[6]}
-                            </p>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -517,42 +540,60 @@ export default function Home() {
               </div>
               <div className="flex justify-around items-center col-span-2">
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-full border border-white w-fit p-4">
+                  <Link
+                    href=""
+                    className="rounded-full hover:bg-[#004191] hover:border-none transition-color duration-300 bg-transparent border border-white w-fit p-4"
+                  >
                     <CgFacebook size={25} />
-                  </div>
+                  </Link>
                   <p>Facebook</p>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-full border border-white w-fit p-4">
+                  <Link
+                    href=""
+                    className="this rounded-full hover:bg-cover hover:border-none transition-color duration-300 bg-transparent border border-white w-fit p-4"
+                  >
                     <BsInstagram size={25} />
-                  </div>
+                  </Link>
                   <p>Instagram</p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-full border border-white w-fit p-4">
+                  <Link
+                    href=""
+                    className="rounded-full border hover:bg-[#00beff] hover:border-none transition-color duration-300 bg-transparent  border-white w-fit p-4"
+                  >
                     {" "}
                     <VscTwitter size={25} />
-                  </div>
+                  </Link>
                   <p>Twitter</p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-full border border-white w-fit p-4">
+                  <Link
+                    href=""
+                    className="rounded-full hover:bg-[#6364FF] hover:border-none transition-color duration-300 bg-transparent border border-white w-fit p-4"
+                  >
                     <BsMastodon size={25} />
-                  </div>
+                  </Link>
                   <p>Mastodon</p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-full border border-white w-fit p-4">
+                  <Link
+                    href=""
+                    className="rounded-full hover:bg-[#FF0000] hover:border-none transition-color duration-300 bg-transparent border border-white w-fit p-4"
+                  >
                     <TfiYoutube size={25} />
-                  </div>
+                  </Link>
                   <p>Youtube</p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-full border border-white p-4">
+                  <Link
+                    href=""
+                    className="rounded-full hover:bg-[#004191] hover:border-none transition-color duration-300 bg-transparent border border-white p-4"
+                  >
                     {" "}
                     <BsLinkedin size={25} />
-                  </div>
+                  </Link>
                   <p>LinkedIn</p>{" "}
                 </div>
               </div>

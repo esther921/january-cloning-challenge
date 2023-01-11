@@ -10,3 +10,9 @@
 ::selection {
   @apply text-white bg-blue-600;
 }
+
+.this:hover {
+  background-image: url("/public/grad.jpg");
+  background-repeat: no-repeat;
+
+}
