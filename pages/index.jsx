@@ -6,7 +6,7 @@ import { FaChevronRight, FaHandsWash } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { RiProfileLine } from "react-icons/ri";
 import { TfiEmail, TfiYoutube } from "react-icons/tfi";
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import { HiChevronUp, HiOutlineInformationCircle } from "react-icons/hi";
 import { VscSearch, VscTwitter } from "react-icons/vsc";
 import { CgFacebook } from "react-icons/cg";
 import { BsInstagram, BsMastodon, BsLinkedin } from "react-icons/bs";
@@ -43,7 +43,7 @@ export default function Home() {
           href="/system/modules/de.stuttgart.uni.v3.basics/resources/favicons/favicon-32x32.png?v=eE54GpEM97"
         />
       </Head>
-      <div className="bg-[#dddddd]">
+      <div className="bg-[#dddddd] relative">
         <div className="max-w-[1170px] mx-auto lg:relative relative">
           {/* navbar */}
           <div
@@ -183,7 +183,7 @@ export default function Home() {
                   ].map((e, i) => {
                     return (
                       <Link
-                        href={""}
+                        href={`/rout/${i}`}
                         key={i}
                         onClick={() => setSlide(0)}
                         className=""
@@ -669,7 +669,7 @@ export default function Home() {
         </div>
         {/* footer */}
         <footer>
-          <div className=" max-w-[1170px]  bg-[#333333] text-white pt-16 px-32 mx-auto">
+          <div className=" max-w-[1170px]  bg-[#333333] text-white pt-16 px-32 mx-auto relative">
             <div className="max-w-[960px] mx-auto grid grid-cols-3">
               <div className="col-span-1">
                 <img
@@ -692,7 +692,7 @@ export default function Home() {
                 <div className="flex flex-col gap-2">
                   <Link
                     href=""
-                    className="this rounded-full hover:bg-cover hover:border-none transition-color duration-300 bg-transparent border border-white w-fit p-4"
+                    className="this rounded-full hover:bg-cover hover:bg-orange-500 hover:border-none transition-color duration-300 bg-transparent border border-white w-fit p-4"
                   >
                     <BsInstagram size={25} />
                   </Link>
