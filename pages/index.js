@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { IoAccessibilityOutline } from "react-icons/io5";
+import { IoAccessibilityOutline, IoLanguageOutline } from "react-icons/io5";
 import { FaChevronRight, FaHandsWash } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { RiProfileLine } from "react-icons/ri";
@@ -16,19 +16,20 @@ import Link from "next/link";
 export default function Home() {
   const [tabValue, setTabValue] = useState(0);
   const [slide, setSlide] = useState(1);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(0);
 
-  const changescrolled = () => {
-    window.scrollY >= 10 ? setScrolled(true) : setScrolled(false);
-  };
-
-  useLayoutEffect(() => {
+  useEffect(() => {
+    const changescrolled = () => {
+      window.scrollY >= 10
+        ? setScrolled(window.scrollY)
+        : setScrolled(window.scrollY);
+    };
     window.addEventListener("scroll", changescrolled);
     return () => {
       window.removeEventListener("scroll", changescrolled);
     };
   }, []);
-  console.log(window.scrollY);
+
   return (
     <>
       <Head>
@@ -47,7 +48,7 @@ export default function Home() {
           {/* navbar */}
           <div
             className={`bg-white pb-13 lg:fixed lg:w-full sticky top-0 z-[100000000] lg:px-12 ${
-              window.scrollY > 19
+              scrolled > 19
                 ? " py-[15px]"
                 : "py-12  transition-all duration-150"
             } `}
@@ -91,14 +92,21 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    className={`max-w-[40px] h-fit group border border-transparent rounded-full p-1  hover:border-[#333] ${
-                      tabValue === 1 ? " invisible" : ""
-                    }`}
-                  >
-                    <img src="/lang.png" alt="yes" />
+                  <div className="group h-fit">
+                    <div
+                      className={`max-w-[40px] h-fit border border-transparent rounded-full p-1  hover:border-[#333] ${
+                        tabValue === 1 ? " invisible" : ""
+                      }`}
+                    >
+                      <img src="/lang.png" alt="yes" />
+                    </div>
+                    <div className="hidden group-hover:block absolute">
+                      <div className=" mt-2 rounded-full bg-gray-200 p-2 text-gray-600">
+                        <IoLanguageOutline size={30} />
+                      </div>
+                    </div>
                   </div>
+
                   <VscSearch
                     className={`-rotate-90 opacity-60 mt-2 ml-1 ${
                       tabValue === 1 ? " invisible" : ""
