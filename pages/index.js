@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState, useLayoutEffect } from "react";
 import Image from "next/image";
 import { IoAccessibilityOutline } from "react-icons/io5";
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronRight, FaHandsWash } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { RiProfileLine } from "react-icons/ri";
 import { TfiEmail, TfiYoutube } from "react-icons/tfi";
@@ -11,11 +11,24 @@ import { VscSearch, VscTwitter } from "react-icons/vsc";
 import { CgFacebook } from "react-icons/cg";
 import { BsInstagram, BsMastodon, BsLinkedin } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
+import { BiBuildingHouse } from "react-icons/bi";
 import Link from "next/link";
 export default function Home() {
   const [tabValue, setTabValue] = useState(0);
   const [slide, setSlide] = useState(1);
+  const [scrolled, setScrolled] = useState(false);
 
+  const changescrolled = () => {
+    window.scrollY >= 10 ? setScrolled(true) : setScrolled(false);
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", changescrolled);
+    return () => {
+      window.removeEventListener("scroll", changescrolled);
+    };
+  }, []);
+  console.log(window.scrollY);
   return (
     <>
       <Head>
@@ -32,11 +45,19 @@ export default function Home() {
       <div className="bg-[#dddddd]">
         <div className="max-w-[1170px] mx-auto lg:relative relative">
           {/* navbar */}
-          <div className="bg-white p-[15px] pb-13 lg:fixed lg:w-full sticky top-0 z-[100000000] lg:px-12">
+          <div
+            className={`bg-white pb-13 lg:fixed lg:w-full sticky top-0 z-[100000000] lg:px-12 ${
+              window.scrollY > 19
+                ? " py-[15px]"
+                : "py-12  transition-all duration-150"
+            } `}
+          >
             <div className="grid grid-cols-12 max-w-[960px] mx-auto">
               {/* logo part */}
               <div className="col-span-6">
-                <div className="relative">
+                <div
+                  className={`relative ${tabValue === 1 ? " invisible" : ""}`}
+                >
                   <img
                     className="max-w-[223px] invert-1 brightness-0 opacity-70"
                     src="https://www.student.uni-stuttgart.de/system/modules/de.stuttgart.uni.v3.basics/resources/img/svg/logo-inverted-en.svg"
@@ -50,16 +71,45 @@ export default function Home() {
               {/* accesibility and language part */}
               <div className="col-span-6 place-self-end h-full">
                 <div className="flex gap-3">
-                  <div>
-                    <IoAccessibilityOutline size={30} className="opacity-60" />
+                  <div className="group h-fit">
+                    <div
+                      className={`max-w-[45px] h-fit group border border-transparent rounded-full p-1  hover:border-[#333] ${
+                        tabValue === 1 ? " invisible" : ""
+                      }`}
+                    >
+                      <IoAccessibilityOutline
+                        size={30}
+                        className="opacity-60"
+                      />
+                    </div>
+                    <div className="hidden group-hover:block absolute">
+                      <div className=" mt-2 rounded-full bg-gray-200 p-2 text-gray-600">
+                        <BiBuildingHouse size={30} />
+                      </div>
+                      <div className=" mt-2 rounded-full bg-gray-200 p-2 text-gray-600">
+                        <FaHandsWash size={30} />
+                      </div>
+                    </div>
                   </div>
-                  <div className="max-w-[30px]">
+
+                  <div
+                    className={`max-w-[40px] h-fit group border border-transparent rounded-full p-1  hover:border-[#333] ${
+                      tabValue === 1 ? " invisible" : ""
+                    }`}
+                  >
                     <img src="/lang.png" alt="yes" />
                   </div>
-                  <VscSearch className="-rotate-90 opacity-60" size={25} />
+                  <VscSearch
+                    className={`-rotate-90 opacity-60 mt-2 ml-1 ${
+                      tabValue === 1 ? " invisible" : ""
+                    }`}
+                    size={25}
+                  />
                   <div
                     onClick={() => setTabValue(1)}
-                    className="flex flex-col gap-2"
+                    className={`flex flex-col gap-2 mt-2 pl-2 ${
+                      tabValue === 1 ? " invisible" : ""
+                    }`}
                   >
                     <div className="border-b-2 border-gray-500 w-7 rounded-full"></div>
                     <div className="border-b-2 border-gray-500 w-7 rounded-full"></div>
@@ -71,8 +121,8 @@ export default function Home() {
             <div
               className={
                 tabValue
-                  ? "pt-12 text-white w-full h-screen left-0 top-0 absolute transition-all ease-in-out duration-300 opacity-100 z-[100000000] overflow-hidden bg-black bg-opacity-[0.85]"
-                  : "transition-all ease-in-out duration-300 opacity-10 relative h-0 overflow-hidden"
+                  ? "pt-6 text-white w-full h-screen left-0 top-0 absolute transition-all ease-in-out duration-300 opacity-100 z-[100000000] overflow-hidden bg-black bg-opacity-[0.85]"
+                  : "transition-all absolute ease-in-out duration-300 opacity-10 w-full top-0 left-0 h-0 overflow-hidden"
               }
             >
               <div className="max-w-[960px] pl-7 mx-auto grid grid-cols-2 ">
@@ -88,7 +138,12 @@ export default function Home() {
                 </div>
                 <p className="flex gap-4 place-self-end pr-10">
                   <VscSearch className="-rotate-90" size={30} />
-                  <RxCross1 size={30} />
+                  <RxCross1
+                    size={30}
+                    onClick={() => {
+                      setTabValue(0), setSlide(1);
+                    }}
+                  />
                 </p>
               </div>
               <div className="flex max-w-[960px] mx-auto pl-8 pt-24 gap-4">
@@ -139,8 +194,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="bg-[#00BEFF] lg:px-12">
-            <div className=" h-80 max-w-[990px] mx-auto gap-24 flex justify-between items-center ">
+          <div className="bg-[#00BEFF] lg:px-12 pb-12">
+            <div className=" h-60 max-w-[990px] mx-auto gap-24 flex justify-between items-center ">
               <div className="space-y-6">
                 <h4 className="font-bold text-3xl">Students</h4>
                 <p className="text-lg">
@@ -160,7 +215,7 @@ export default function Home() {
           </div>
 
           {/* form and image text btn section */}
-          <section className="max-w-[74rem] bg-white mx-auto pb-32 lg:px-12">
+          <div className="max-w-[74rem] bg-white mx-auto pb-32 lg:px-12">
             <div className=" max-w-[44rem] mx-auto grid pt-16 pb-10">
               <div className=" bg-[#EEEEEE] px-10  py-6">
                 <h4 className="mb-2">expression</h4>
@@ -303,7 +358,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-          </section>
+          </div>
 
           {/* Absoluted image text black-bg section */}
           <div className="max-w-[1170px] relative mx-auto bg-[#333] h-[1655px] pl-12 pt-12">
