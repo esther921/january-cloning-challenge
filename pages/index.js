@@ -445,8 +445,8 @@ export default function Home() {
                   <div className="rounded-full border border-white w-fit p-4">
                     {" "}
                     <VscTwitter size={25} />
-                    <p>Twitter</p>
                   </div>
+                  <p>Twitter</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="rounded-full border border-white w-fit p-4">
